@@ -1,5 +1,37 @@
 ---
-title: "Balam-Ruiz-Portfolio"
+title: "Balam Ruiz"
+about: 
+  template: jolla
+  image: Balam-Portrait.jpg
+  links:
+    - icon: linkedin
+      text: Linkedin
+      href: https://www.linkedin.com/in/balam-e-ruiz-2a34b3297/
+    - icon: github
+      text: Github
+      href: https://github.com/Balam-Malab
 ---
 
-This is a Quarto website.
+Balam Ruiz is a student at California State University, Monterey Bay completing their junior year toward a B.S in Mathematics with Teaching Concentration and Minor in Data Science.
+
+## Education
+
+California State University, Monterey Bay \| Seaside, CA
+
+B.S in Mathematics \| 2027
+
+Gavilan College \| Gilroy, CA
+
+A.S in Mathematics \| 2025
+
+## Experience
+
+Hollister High School TRIO Upward Bound \| TRIO Academic Tutor \| June 2024 - present
+
+Watsonville Yoga \| Danza de Concheros instructor \| April 2025 - present
+
+Gavilan College MESA Center \| Mesa Academic Lead \| August 2024 - May 2025
+
+Gavilan College STEM Center & Math Lab \| January 2022 - May 2025
+
+San Benito County Behavioral Health \| Peer Mentor \| August 2020 - February 2023
