@@ -1,0 +1,137 @@
+---
+title: "Project"
+author: "Balam Ruiz"
+format:
+  html: 
+    fig-cap-location: bottom
+editor: visual
+---
+
+## Data Description
+
+I obtained my data from the California Health and Human Services Department of Health Care Access and Information. The original dataset can be found through this link: <https://data.chhs.ca.gov/dataset/hospital-encounters-for-behavioral-health>
+
+```{r}
+#| label: loading-packages
+#| include: FALSE
+library(tidyverse)
+library(dplyr)
+library(janitor)
+```
+
+```{r}
+#| label: read-data
+#| include: FALSE
+
+hospital <- read_csv("data/data-raw/hospitalencountersforbehavioralhealth.csv")
+```
+
+## Data Cleaning
+
+In order to make the data easier to work with, I first did trivial changes such as making the category names more intuitive, adjusted minor spelling mistakes, and did not include the "geography" categroy as we are only looking at California.
+
+Next, I made the "percent" category an actual percentage because it was initially a proportion. Then, to focus on the different hospitalizations by race, I made "race" its own category rather than having "race" be an input on a separate category. This made it easier to see how many members of each race were diagnosed with which substance abuse disorders or other mental health disorders, for example.
+
+I then wanted to focus on what percent of hospital encounters were emergency room visits and which were in-patient visits by race, so from my past changes, I then calculated the average percent.
+
+```{r}
+#| echo: FALSE
+hospital <- hospital |> 
+  clean_names()
+```
+
+```{r}
+#| echo: FALSE
+hospital <- hospital |> 
+  select(-geography) 
+```
+
+```{r}
+#| echo: FALSE
+hospital <- hospital |> 
+  mutate(dxgroup = str_replace(dxgroup, "Co-Occuring", "Co-Occurring"))
+```
+
+```{r}
+#| echo: FALSE
+hospital <- hospital |> 
+  mutate(percent = round(percent * 100, 2))
+```
+
+```{r}
+#| echo: FALSE
+hospital <- hospital |> 
+  filter(category == "Race") |> 
+  select(year, pattype, race = cat_desc, dxgroup, count, percent)
+```
+
+```{r}
+#| echo: FALSE
+hospital_compare <- hospital |> 
+  group_by(race, dxgroup, pattype) |> 
+  summarize(avg_percent = mean(percent, na.rm = TRUE), .groups = "drop")
+```
+
+## Mental Health Encounters
+
+This first visualization is a line chart that takes a closer look between the percentage of mental health encounters via inpatient visits and emergency visits in California from 2020-2022 by differentiating by race/ethnicity. The solid lines show inpatient visits, which can be described as people seeking long term care, and Emergency (ED) visits are depicted with dotted lines. Notice that the dotted lines are greater than the solid lines across all groups.
+
+It is also important to note that the percentages are with respect to each race/setting group. Overall, Emergency visits declined across all groups from 2020-2022.
+
+```{r}
+#| label: fig-mental-health
+#| echo: FALSE
+#| fig-cap: "Trend of Inpatient/Emergency mental health visits by race from 2020-2022"
+#| fig-alt: "Line chart showing the percent of mental health disorder encounters by race/ethnicity in California from 2020 to 2022. The percentage of Inpatient visits (solid lines) are roughly double than Emergency visits (dashed lines) across all groups. White patients have the highest Inpatient and Emergency visits. Emergency visit rates declined across all groups over the period."
+
+hospital |> 
+  filter(dxgroup == "Mental Health Disorders") |> 
+  ggplot(aes(x = year,
+             y = percent, 
+             color = race, 
+             linetype = pattype)) +
+  geom_line() +
+  geom_point() + 
+  scale_x_continuous(breaks = c(2020, 2021, 2022)) + 
+  labs(
+    title = "Mental Health Disorder Hospital Encounters by Race and Ethnicity", 
+    subtitle = "Source: CHHS Hospital Encounters for Behavioral Health", 
+    y = "Percentage", 
+    x = NULL, 
+    color = "Race/Ethnicity", 
+    linetype = "Setting") 
+  
+```
+
+## Substance Use Encounters in 2021
+
+This second visualization focuses on a specific year, 2021, rather than the trend from 2020-2022. We are still focusing on race and our percentages are still with respect to each race/setting group, but now instead of looking at mental health encounters, we specifically look at encounters with substance use disorders. This is an interesting year to look at with this diagnosis when we have the context of COVID-19.
+
+Across all groups, there was a higher percentage of inpatient visits rather than emergency visits regarding substance use disorders. It is interesting to note which groups have overall higher or lower percentages, and which groups have similar percentages for a setting. Due to the nature of the bar chart, this is easier to see, compared to our line chart above.
+
+```{r}
+#| label: fig-substance-use
+#| echo: FALSE
+#| fig-alt: "Bar chart showing the percent of substance use disorder encounters by race/ethnicity in California in 2021. Inpatient visits (red) are consistently greater than Emergency visits (purple) across all groups. American Indian/Alaskan Native have the highest percentage of both Inpatient and Emergency visits."
+#| fig-cap: "Percentages of substance use disorder encounters via Inpatient or Emergency visit in 2021"
+    
+hospital |> 
+  filter(dxgroup == "Substance Use Disorders", year == 2021) |> 
+  mutate(race = fct_reorder(race, percent, .desc = TRUE)) |> 
+  ggplot(aes(x = race, y = percent, fill = pattype)) +
+  geom_col(position = "dodge", width = 0.7) +
+  labs(
+    title = "Substance Use Disorder Hospital Encounters by Race and Ethnicity in 2021", 
+    subtitle = "Source: CHHS Hospital Encounters for Behavioral Health.", 
+    y = "Percentage", x = NULL, 
+    fill = "Setting"
+  ) +
+  scale_x_discrete(labels = c("All Other Race,inc Multi/Unk/Inv" = "All Other",
+    "American Indian/Alaska Native" = "Amer. Indian/\nAlaska Native", 
+    "Asian/Pacific Islander" = "Asian/\nPacific Islander", 
+    "Black" = "Black", 
+    "Hispanic" = "Hispanic", 
+    "White" = "White"
+  )) + 
+  scale_fill_viridis_d(option = "H")
+```

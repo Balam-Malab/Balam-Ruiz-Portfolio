@@ -1,5 +1,47 @@
 [
   {
+    "objectID": "portfolio.html",
+    "href": "portfolio.html",
+    "title": "Project",
+    "section": "",
+    "text": "I obtained my data from the California Health and Human Services Department of Health Care Access and Information. The original dataset can be found through this link: https://data.chhs.ca.gov/dataset/hospital-encounters-for-behavioral-health"
+  },
+  {
+    "objectID": "portfolio.html#data-description",
+    "href": "portfolio.html#data-description",
+    "title": "Project",
+    "section": "",
+    "text": "I obtained my data from the California Health and Human Services Department of Health Care Access and Information. The original dataset can be found through this link: https://data.chhs.ca.gov/dataset/hospital-encounters-for-behavioral-health"
+  },
+  {
+    "objectID": "portfolio.html#data-cleaning",
+    "href": "portfolio.html#data-cleaning",
+    "title": "Project",
+    "section": "Data Cleaning",
+    "text": "Data Cleaning\nIn order to make the data easier to work with, I first did trivial changes such as making the category names more intuitive, adjusted minor spelling mistakes, and did not include the “geography” categroy as we are only looking at California.\nNext, I made the “percent” category an actual percentage because it was initially a proportion. Then, to focus on the different hospitalizations by race, I made “race” its own category rather than having “race” be an input on a separate category. This made it easier to see how many members of each race were diagnosed with which substance abuse disorders or other mental health disorders, for example.\nI then wanted to focus on what percent of hospital encounters were emergency room visits and which were in-patient visits by race, so from my past changes, I then calculated the average percent."
+  },
+  {
+    "objectID": "portfolio.html#mental-health-encounters",
+    "href": "portfolio.html#mental-health-encounters",
+    "title": "Project",
+    "section": "Mental Health Encounters",
+    "text": "Mental Health Encounters\nThis first visualization is a line chart that takes a closer look between the percentage of mental health encounters via inpatient visits and emergency visits in California from 2020-2022 by differentiating by race/ethnicity. The solid lines show inpatient visits, which can be described as people seeking long term care, and Emergency (ED) visits are depicted with dotted lines. Notice that the dotted lines are greater than the solid lines across all groups.\nIt is also important to note that the percentages are with respect to each race/setting group. Overall, Emergency visits declined across all groups from 2020-2022.\n\n\n\n\n\n\n\n\nFigure 1: Trend of Inpatient/Emergency mental health Visits by race from 2020-2022"
+  },
+  {
+    "objectID": "portfolio.html#substance-use-encounters-in-2021",
+    "href": "portfolio.html#substance-use-encounters-in-2021",
+    "title": "Project",
+    "section": "Substance Use Encounters in 2021",
+    "text": "Substance Use Encounters in 2021\nThis second visualization focuses on a specific year, 2021, rather than the trend from 2020-2022. We are still focusing on race and our percentages are still with respect to each race/setting group, but now instead of looking at mental health encounters, we specifically look at encounters with substance use disorders. This is an interesting year to look at with this diagnosis when we have the context of COVID-19.\nAcross all groups, there was a higher percentage of inpatient visits rather than emergency visits regarding substance use disorders. It is interesting to note which groups have overall higher or lower percentages, and which groups have similar percentages for a setting. Due to the nature of the bar chart, this is easier to see, compared to our line chart above.\n\n\n\n\n\n\n\n\nFigure 2: Percentages of substance use disorder encounters via Inpatient or Emergency visit in 2021"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Balam Ruiz is a curious and dedicated mathematician in training. He transferred from Gavilan College and is completing his junior year at California State University, Monterey Bay where he is exploring the beauties of mathematics and data science under loving and down to earth professors.\nBalam is also a well-trained tutor and is excellent with all levels and ages of people. He currently works in after school programs servicing tk-5 children in Watsonville and high schoolers in Hollister. There are no bounds to his love or appreciation to those around him, and gladly makes time for those that need him."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Balam Ruiz",
@@ -19,12 +61,5 @@
     "title": "Balam Ruiz",
     "section": "Experience",
     "text": "Experience\nHollister High School TRIO Upward Bound | TRIO Academic Tutor | June 2024 - present\nWatsonville Yoga | Danza de Concheros instructor | April 2025 - present\nGavilan College MESA Center | Mesa Academic Lead | August 2024 - May 2025\nGavilan College STEM Center & Math Lab | January 2022 - May 2025\nSan Benito County Behavioral Health | Peer Mentor | August 2020 - February 2023"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About\nBalam Ruiz is a curious and dedicated mathematician in training. He transferred from Gavilan College and is completing his junior year at California State University, Monterey Bay where he is exploring the beauties of mathematics and data science under loving and down to earth professors.\nBalam is also a well-trained tutor and is excellent with all levels and ages of people. He currently works in after school programs servicing tk-5 children in Watsonville and high schoolers in Hollister. There are no bounds to his love or appreciation to those around him, and gladly makes time for those that need him."
   }
 ]

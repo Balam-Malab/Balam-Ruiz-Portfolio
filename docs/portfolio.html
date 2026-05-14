@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Balam Ruiz">
 
-<title>About – Balam Ruiz’s ePortfolio</title>
+<title>Project – Balam Ruiz’s ePortfolio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -97,11 +98,11 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
+    <a class="nav-link" href="./about.html"> 
 <span class="menu-text">About Me</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./portfolio.html"> 
+    <a class="nav-link active" href="./portfolio.html" aria-current="page"> 
 <span class="menu-text">Project</span></a>
   </li>  
 </ul>
@@ -115,21 +116,36 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#data-description" id="toc-data-description" class="nav-link active" data-scroll-target="#data-description">Data Description</a></li>
+  <li><a href="#data-cleaning" id="toc-data-cleaning" class="nav-link" data-scroll-target="#data-cleaning">Data Cleaning</a></li>
+  <li><a href="#mental-health-encounters" id="toc-mental-health-encounters" class="nav-link" data-scroll-target="#mental-health-encounters">Mental Health Encounters</a></li>
+  <li><a href="#substance-use-encounters-in-2021" id="toc-substance-use-encounters-in-2021" class="nav-link" data-scroll-target="#substance-use-encounters-in-2021">Substance Use Encounters in 2021</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">Project</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Balam Ruiz </p>
+          </div>
+  </div>
     
   
     
@@ -140,10 +156,56 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Balam Ruiz is a curious and dedicated mathematician in training. He transferred from Gavilan College and is completing his junior year at California State University, Monterey Bay where he is exploring the beauties of mathematics and data science under loving and down to earth professors.</p>
-<p>Balam is also a well-trained tutor and is excellent with all levels and ages of people. He currently works in after school programs servicing tk-5 children in Watsonville and high schoolers in Hollister. There are no bounds to his love or appreciation to those around him, and gladly makes time for those that need him.</p>
+<section id="data-description" class="level2">
+<h2 class="anchored" data-anchor-id="data-description">Data Description</h2>
+<p>I obtained my data from the California Health and Human Services Department of Health Care Access and Information. The original dataset can be found through this link: <a href="https://data.chhs.ca.gov/dataset/hospital-encounters-for-behavioral-health" class="uri">https://data.chhs.ca.gov/dataset/hospital-encounters-for-behavioral-health</a></p>
+</section>
+<section id="data-cleaning" class="level2">
+<h2 class="anchored" data-anchor-id="data-cleaning">Data Cleaning</h2>
+<p>In order to make the data easier to work with, I first did trivial changes such as making the category names more intuitive, adjusted minor spelling mistakes, and did not include the “geography” categroy as we are only looking at California.</p>
+<p>Next, I made the “percent” category an actual percentage because it was initially a proportion. Then, to focus on the different hospitalizations by race, I made “race” its own category rather than having “race” be an input on a separate category. This made it easier to see how many members of each race were diagnosed with which substance abuse disorders or other mental health disorders, for example.</p>
+<p>I then wanted to focus on what percent of hospital encounters were emergency room visits and which were in-patient visits by race, so from my past changes, I then calculated the average percent.</p>
+</section>
+<section id="mental-health-encounters" class="level2">
+<h2 class="anchored" data-anchor-id="mental-health-encounters">Mental Health Encounters</h2>
+<p>This first visualization is a line chart that takes a closer look between the percentage of mental health encounters via inpatient visits and emergency visits in California from 2020-2022 by differentiating by race/ethnicity. The solid lines show inpatient visits, which can be described as people seeking long term care, and Emergency (ED) visits are depicted with dotted lines. Notice that the dotted lines are greater than the solid lines across all groups.</p>
+<p>It is also important to note that the percentages are with respect to each race/setting group. Overall, Emergency visits declined across all groups from 2020-2022.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-mental-health" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Line chart showing the percent of mental health disorder encounters by race/ethnicity in California from 2020 to 2022. The percentage of Inpatient visits (solid lines) are roughly double than Emergency visits (dashed lines) across all groups. White patients have the highest Inpatient and Emergency visits. Emergency visit rates declined across all groups over the period.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mental-health-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="portfolio_files/figure-html/fig-mental-health-1.png" class="img-fluid figure-img" alt="Line chart showing the percent of mental health disorder encounters by race/ethnicity in California from 2020 to 2022. The percentage of Inpatient visits (solid lines) are roughly double than Emergency visits (dashed lines) across all groups. White patients have the highest Inpatient and Emergency visits. Emergency visit rates declined across all groups over the period." width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mental-health-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Trend of Inpatient/Emergency mental health Visits by race from 2020-2022
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="substance-use-encounters-in-2021" class="level2">
+<h2 class="anchored" data-anchor-id="substance-use-encounters-in-2021">Substance Use Encounters in 2021</h2>
+<p>This second visualization focuses on a specific year, 2021, rather than the trend from 2020-2022. We are still focusing on race and our percentages are still with respect to each race/setting group, but now instead of looking at mental health encounters, we specifically look at encounters with substance use disorders. This is an interesting year to look at with this diagnosis when we have the context of COVID-19.</p>
+<p>Across all groups, there was a higher percentage of inpatient visits rather than emergency visits regarding substance use disorders. It is interesting to note which groups have overall higher or lower percentages, and which groups have similar percentages for a setting. Due to the nature of the bar chart, this is easier to see, compared to our line chart above.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-substance-use" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Bar chart showing the percent of substance use disorder encounters by race/ethnicity in California in 2021. Inpatient visits (red) are consistently greater than Emergency visits (purple) across all groups. American Indian/Alaskan Native have the highest percentage of both Inpatient and Emergency visits.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-substance-use-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="portfolio_files/figure-html/fig-substance-use-1.png" class="img-fluid figure-img" alt="Bar chart showing the percent of substance use disorder encounters by race/ethnicity in California in 2021. Inpatient visits (red) are consistently greater than Emergency visits (purple) across all groups. American Indian/Alaskan Native have the highest percentage of both Inpatient and Emergency visits." width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-substance-use-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Percentages of substance use disorder encounters via Inpatient or Emergency visit in 2021
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
